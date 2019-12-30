@@ -22,7 +22,7 @@ iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 ip route del default dev eth0
 
 # Waiting for network connection
-curl --retry 10 http://www.example.com
+curl --retry 10 http://www.google.com
 
 # Restart the SSM agent
 systemctl restart amazon-ssm-agent.service

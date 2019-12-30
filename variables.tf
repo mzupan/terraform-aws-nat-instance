@@ -17,6 +17,7 @@ variable "private_subnets_cidr_blocks" {
 variable "private_route_table_ids" {
   description = "List of ID of the route tables for the private subnets. You can set this to assign the each default route to the NAT instance"
   default     = []
+  type        = list
 }
 
 variable "extra_user_data" {
@@ -41,5 +42,10 @@ variable "use_spot_instance" {
 
 variable "key_name" {
   description = "Name of the key pair for the NAT instance. You can set this to assign the key pair to the NAT instance"
+  default     = ""
+}
+
+variable "eip_id" {
+  description = "The Elastic IP ID if you have one pre-created"
   default     = ""
 }

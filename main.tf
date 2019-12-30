@@ -36,11 +36,19 @@ resource "aws_network_interface" "this" {
 }
 
 resource "aws_eip" "this" {
+  count = var.eip_id != "" ? 1 : 0
   network_interface = aws_network_interface.this.id
   tags = {
     Name = "nat-instance-${var.name}"
   }
 }
+
+resource "aws_eip_association" "this" {
+  count                = var.eip_id != "" ? 0 : 1
+  allocation_id        = aws_eip.this.id
+  network_interface_id = aws_network_interface.this.id
+}
+
 
 resource "aws_route" "this" {
   count                  = length(var.private_route_table_ids)
