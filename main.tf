@@ -186,7 +186,8 @@ resource "aws_iam_role_policy" "eni" {
         {
             "Effect": "Allow",
             "Action": [
-                "ec2:AttachNetworkInterface"
+                "ec2:AttachNetworkInterface",
+                "ec2:DescribeInstances"
             ],
             "Resource": "*"
         }
