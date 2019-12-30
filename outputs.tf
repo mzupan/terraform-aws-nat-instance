@@ -1,11 +1,11 @@
 output "eip_id" {
   description = "ID of the Elastic IP"
-  value       = "${aws_eip.this.id}"
+  value       = "${aws_eip.this[0].id}"
 }
 
 output "eip_public_ip" {
   description = "Public IP of the Elastic IP for the NAT instance"
-  value       = "${aws_eip.this.public_ip}"
+  value       = "${aws_eip.this[0].public_ip}"
 }
 
 output "eni_id" {

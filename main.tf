@@ -45,7 +45,7 @@ resource "aws_eip" "this" {
 
 resource "aws_eip_association" "this" {
   count                = var.eip_id != "" ? 0 : 1
-  allocation_id        = aws_eip.this.id
+  allocation_id        = aws_eip.this[0].id
   network_interface_id = aws_network_interface.this.id
 }
 
